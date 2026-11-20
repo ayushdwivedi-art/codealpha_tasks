@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SocialHub — a small place to share your world.">
+  <title>SocialHub — Share your world</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="authView" class="auth-screen">
+    <div class="auth-brand"><span class="brand-mark">s</span><span>socialhub</span></div>
+    <div class="auth-card">
+      <div class="auth-copy"><p class="eyebrow">YOUR PEOPLE. YOUR SPACE.</p><h1>Make room for<br><span>good things.</span></h1><p>Share moments, meet people and keep up with what matters.</p></div>
+      <div class="auth-form-wrap">
+        <div class="auth-tabs"><button class="tab active" data-mode="login">Log in</button><button class="tab" data-mode="register">Sign up</button></div>
+        <form id="authForm">
+          <label id="usernameLabel" class="hidden">Username<input id="usernameInput" name="username" placeholder="your_username" minlength="3"></label>
+          <label id="loginLabel">Email or username<input id="loginInput" name="login" placeholder="you@example.com" autocomplete="username"></label>
+          <label id="emailLabel" class="hidden">Email address<input id="emailInput" name="email" type="email" placeholder="you@example.com"></label>
+          <label>Password<input id="passwordInput" name="password" type="password" placeholder="At least 6 characters" autocomplete="current-password"></label>
+          <button class="primary-btn full" type="submit" id="authSubmit">Log in <span>→</span></button>
+          <p id="authMessage" class="form-message"></p>
+        </form>
+        <p class="fine-print">By continuing, you agree to be kind to each other.</p>
+      </div>
+    </div>
+    <div class="auth-footer">A little corner of the internet, just for you.</div>
+  </div>
+
+  <div id="appView" class="app hidden">
+    <aside class="sidebar">
+      <a class="logo" href="#"><span class="brand-mark">s</span><span>socialhub</span></a>
+      <nav>
+        <button class="nav-item active" data-view="feed"><span>⌂</span> Home</button>
+        <button class="nav-item" data-view="explore"><span>⌕</span> Explore</button>
+        <button class="nav-item" data-view="profile"><span>◉</span> My profile</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-user" id="sidebarUser"></div>
+        <button class="nav-item logout" id="logoutBtn"><span>↗</span> Log out</button>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div><p class="eyebrow" id="pageEyebrow">YOUR DAILY DOSE</p><h2 id="pageTitle">Home feed</h2></div><div class="top-actions"><span class="online-dot"></span><span>You're in your space</span></div></header>
+      <section id="feedView" class="view">
+        <div class="feed-layout">
+          <div class="feed-column">
+            <form id="createPostForm" class="composer">
+              <div class="composer-top"><div id="composerAvatar" class="avatar">S</div><textarea id="postContent" placeholder="What's on your mind?" maxlength="2000" rows="2"></textarea></div>
+              <div id="imagePreview" class="image-preview hidden"></div>
+              <div class="composer-bottom"><label class="upload-label" for="postImage">＋ Add a photo<input id="postImage" type="file" accept="image/*" hidden></label><span id="charCount">0 / 2000</span><button class="primary-btn" type="submit">Share post <span>↗</span></button></div>
+              <p id="postMessage" class="form-message"></p>
+            </form>
+            <div class="section-heading"><div><p class="eyebrow">THE LATEST</p><h3>Fresh from your community</h3></div><span class="live-pill">● LIVE FEED</span></div>
+            <div id="feedPosts" class="posts-list"><div class="loading">Loading your feed…</div></div>
+          </div>
+          <aside class="right-rail">
+            <div class="rail-card welcome-card"><p class="eyebrow">WELCOME ABOARD</p><h3>Good to have<br>you here.</h3><p>Your space to share, connect and discover something new.</p><div class="welcome-decoration">✳</div></div>
+            <div class="rail-card"><div class="rail-title"><h3>Find your people</h3><span>↗</span></div><p class="muted">Search for people and grow your circle.</p><button class="outline-btn" data-go="explore">Explore people</button></div>
+            <p class="rail-note">SOCIALHUB · MADE FOR CONNECTION</p>
+          </aside>
+        </div>
+      </section>
+      <section id="exploreView" class="view hidden">
+        <div class="explore-intro"><p class="eyebrow">DISCOVER YOUR COMMUNITY</p><h3>People worth knowing.</h3><p class="muted">Find creators, classmates and new friends.</p></div>
+        <div class="search-box"><span>⌕</span><input id="userSearch" placeholder="Search by username…" autocomplete="off"></div>
+        <div id="userResults" class="user-grid"><p class="muted">Start typing to find people.</p></div>
+      </section>
+      <section id="profileView" class="view hidden"><div id="profileContent"></div></section>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
